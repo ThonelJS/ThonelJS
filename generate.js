@@ -27,14 +27,14 @@ if (frontpage.exists()) {
         info,
         content: converter.makeHtml(frontpage.read())
     });
+    fs.writeFileSync('./docs/index.html', frontpageHtml);
 } else {
     const frontpageHtml = pug.renderFile('./views/list.pug', {
         info,
         articles: articles.list()
     });
+    fs.writeFileSync('./docs/index.html', frontpageHtml);
 }
-
-fs.writeFileSync('./docs/index.html', frontpageHtml);
 
 // Blog
 const blogHtml = pug.renderFile('./views/list.pug', {
