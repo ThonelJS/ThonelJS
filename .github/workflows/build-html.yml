@@ -1,0 +1,25 @@
+name: Build HTML from Markdown
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  update-project:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Generate new pages
+      run: npm i && node generate.js
+
+    - name: Push the new pages
+      uses: test-room-7/action-update-file@v1
+      with:
+          file-path: docs/*.html
+          commit-msg: Update Github Pages with new files
+          github-token: ${{ secrets.GITHUB_TOKEN }}
