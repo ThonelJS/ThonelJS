@@ -1,0 +1,11 @@
+html
+  head
+    include includes/head.pug
+  body
+    include includes/header.pug
+    article
+      each article in articles
+        a(href=article.name)
+          h2 !{article.name}
+        i= article.caption
+        hr
