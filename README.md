@@ -2,7 +2,7 @@
 
 Website hosting should not be a hassle.
 
-## ## About
+## About
 
 I wanted to host a simple website somewhere and know that it would not go down when I forget to pay the hosting. That is why I chose Github Pages as my hosting platform. Github Pages only has one problem. I do not want to write HTML. This lead to ThonelJS creation. ThonelJS automatically generates new HTML and updates it to the git repository.
 
