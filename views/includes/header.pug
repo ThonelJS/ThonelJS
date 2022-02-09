@@ -1,8 +1,13 @@
-header
-  nav 
-    a(href="index.html") Home
-    a(href="blog.html") Blog
-    if about
-       a(href="about.html") About
-    h1= info.title
-    p= info.description
+div(class="container") 
+  div(class="terminal-nav")
+    div(class="terminal-logo terminal-prompt")
+      a(class="no-style", href="index.html")=info.title 
+    nav(class="terminal-menu")
+      ul
+        li
+          a(class="menu-item", href="index.html") Home
+        li
+          a(class="menu-item", href="blog.html") Blog
+        if about
+          li
+            a(class="menu-item", href="about.html") About

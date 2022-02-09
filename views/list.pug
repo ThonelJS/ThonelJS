@@ -3,7 +3,7 @@ html
     include includes/head.pug
   body
     include includes/header.pug
-    article
+    article(class="container")
       each article in articles
         a(href=article.name)
           h2 !{article.name}
