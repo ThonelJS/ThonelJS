@@ -41,7 +41,12 @@ app.get('/:article', (req, res) => {
         const html = articles.read(article, 0, true);
         return res.render('article', { content: html, title: article });
     } else {
-        res.redirect('/');
+        const file = article;
+        if (fs.existsSync(`${__dirname}/content/static/${file}`)) {
+            return res.sendFile(`${__dirname}/content/static/${file}`)
+        } else {
+            res.redirect('/');
+        }
     }
 });
 

@@ -52,7 +52,7 @@ const blogHtml = pug.renderFile('./views/list.pug', {
 fs.writeFileSync('./docs/blog.html', blogHtml);
 
 
-// Individual articles
+// Individual articles and files
 console.log(`Generating pages for ${articles.list().length} articles...`);
 
 articles.list().forEach((article) => {
@@ -65,3 +65,11 @@ articles.list().forEach((article) => {
 
     fs.writeFileSync(`./docs/${article.name}.html`, articleHtml);
 });
+
+console.log('Copying static files...');
+// TODO: Handle collisions with articles
+fs.readdirSync(`${__dirname}/content/static`).forEach((file) => {
+    fs.copyFileSync(`${__dirname}/content/static/${file}`, `${__dirname}/docs/${file}`);
+});
+
+console.log('Done!');
