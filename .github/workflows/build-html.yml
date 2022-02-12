@@ -20,6 +20,6 @@ jobs:
     - name: Push the new pages
       uses: test-room-7/action-update-file@v1
       with:
-          file-path: docs/*.html
+          file-path: docs/*
           commit-msg: Update Github Pages with new files
           github-token: ${{ secrets.GITHUB_TOKEN }}
