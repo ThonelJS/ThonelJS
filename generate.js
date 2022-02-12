@@ -66,10 +66,12 @@ articles.list().forEach((article) => {
     fs.writeFileSync(`./docs/${article.name}.html`, articleHtml);
 });
 
-console.log('Copying static files...');
-// TODO: Handle collisions with articles
-fs.readdirSync(`${__dirname}/content/static`).forEach((file) => {
-    fs.copyFileSync(`${__dirname}/content/static/${file}`, `${__dirname}/docs/${file}`);
-});
+if (fs.existsSync(`${__dirname}/content/static`)) {
+    console.log('Copying static files...');
+    // TODO: Handle collisions with articles
+    fs.readdirSync(`${__dirname}/content/static`).forEach((file) => {
+        fs.copyFileSync(`${__dirname}/content/static/${file}`, `${__dirname}/docs/${file}`);
+    });
+}
 
 console.log('Done!');
